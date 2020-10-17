@@ -6,16 +6,16 @@
     <title>Simple Website</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
 </head>
 <body>
-    <h3>Clicking each button below displays a different text string as output</h3>
-
-    <button type="button">Button 1</button>
-    <button type="button">Button 2</button>
+    <h3>Which button did you click last time</h3>
+    
+    <button id="button1" type="button">Button 1</button>
+    <button id="button2" type="button">Button 2</button>
     <br>
-    <div class="outputText0">
-        <h2> output text string</h2>
+    <div class="outputTextDiv">
+        <h2 id="outputText"> No buttons clicked yet ...</h2>
     </div>
+    <script src='main.js'></script>
 </body>
 </html>
