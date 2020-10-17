@@ -10,8 +10,8 @@ https://medium.com/@jgefroh/a-guide-to-using-nginx-for-static-websites-d96a9d034
 - use the server block below instead of one in the medium article in /etc/nginx/sites-available/simpleWebsite.com : <br>
 ```
 server {
-  listen 80;
-  listen [::]:80;  
+  listen 120;
+  listen [::]:120;  
   root /var/www/simpleWebsite.com;  
   index index.html;  
   server_name simpleWebsite.com www.simpleWebsite.com;  
