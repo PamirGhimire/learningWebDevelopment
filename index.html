@@ -3,19 +3,23 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Simple Website</title>
+    <title>Chat!</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 </head>
 <body>
-    <h3>Which button did you click last time</h3>
-    
-    <button id="button1" type="button">Button 1</button>
-    <button id="button2" type="button">Button 2</button>
+    <h3>Type your message and click send</h3>
     <br>
-    <div class="outputTextDiv">
-        <h2 id="outputText"> No buttons clicked yet ...</h2>
+    <h4>Today's Message Board:</h4>
+    <div class="conversationDiv">
+        <h2 id="conversation"> No messages yet today! </h2>
     </div>
+
+    <fieldset id="LinkList">
+        <input type="text" id="newMessage" name="newMessageBox" value="" size="77">
+        <input type="button" id="sendMessage" name="sendMessageButton" value="Send">
+    </fieldset>
+
     <script src='main.js'></script>
 </body>
 </html>
