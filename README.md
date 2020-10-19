@@ -9,4 +9,4 @@ https://medium.com/@jgefroh/a-guide-to-using-nginx-for-static-websites-d96a9d034
 
 - use the server block in frontend/simpleWebsite.com instead of one in the medium article <br>
 
-- pip packages : flask requests
+- pip packages : flask requests flask-cors
