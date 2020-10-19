@@ -7,16 +7,4 @@ https://medium.com/@jgefroh/a-guide-to-using-nginx-for-static-websites-d96a9d034
     - $ sudo apt-get install nginx<br>
     - the commands above have also been used in updateServerFiles.sh<br>
 
-- use the server block below instead of one in the medium article in /etc/nginx/sites-available/simpleWebsite.com : <br>
-```
-server {
-  listen 120;
-  listen [::]:120;  
-  root /var/www/simpleWebsite.com;  
-  index index.html;  
-  server_name simpleWebsite.com www.simpleWebsite.com;  
-  location / {
-    try_files $uri $uri/ =404;
-  }
-}
-```
+- use the server block in frontend/simpleWebsite.com instead of one in the medium article <br>
