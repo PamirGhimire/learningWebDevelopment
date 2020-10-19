@@ -1,18 +1,14 @@
 // alert("Welcome to a simple website");
-document.getElementById("button1").addEventListener("click", Button1Callback);
-document.getElementById("button2").addEventListener("click", Button2Callback);
+document.getElementById("sendMessage").addEventListener("click", SendMessage);
 
 function Pi() 
 {
     return Math.PI;
 }
 
-function Button1Callback()
+function SendMessage()
 {
-    document.getElementById("outputText").innerHTML = "You clicked button 1!";
-}
-
-function Button2Callback()
-{
-    document.getElementById("outputText").innerHTML = "You clicked button 2!";
+    var newMessage = document.getElementById("newMessage").value;
+    alert(newMessage);
+    document.getElementById("newMessage").value = "";
 }
