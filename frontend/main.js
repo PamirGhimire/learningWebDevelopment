@@ -1,10 +1,15 @@
-// alert("Welcome to a simple website");
-document.getElementById("sendMessage").addEventListener("click", SendMessage);
+function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+ }
 
-function Pi() 
-{
-    return Math.PI;
-}
+document.getElementById("sendMessage").addEventListener("click", SendMessage);
+let userId = makeid(5);
 
 function SendMessage()
 {
@@ -20,7 +25,7 @@ function SendMessage()
             console.log(json.email + ", " + json.name) 
         } 
     } 
-    var data = JSON.stringify({"userId": 123, "newMessage": newMessage}); 
+    var data = JSON.stringify({"userId": String(userId), "newMessage": newMessage}); 
     xhr.send(data);
 
     document.getElementById("newMessage").value = "";
