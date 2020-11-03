@@ -2,6 +2,8 @@ import sys
 from flask import Flask, request, jsonify, json
 from flask_cors import CORS
 
+maxChatHistoryLength=10
+chatHistory = []
 
 # create a Flask CORS application
 app = Flask(__name__)
@@ -9,12 +11,17 @@ CORS(app)
 
 # create predict url and only allow post requests.
 @app.route('/newMessage', methods=['POST'])
-def predict():
+def ReceiveNewMessage():
     data = request.get_json()
     userId = data["userId"]
     newMessage = data["newMessage"]
 
-    print("\nuser " + str(userId) + ": " + newMessage) #debug log, comment in production
+    chatHistory.append(str(userId) + ":" + str(newMessage))
+    if (len(chatHistory) > maxChatHistoryLength):
+        chatHistory.pop(0)
+
+    print(chatHistory) #remove in production
+
     # return jsonify("registered new message from user " + str(userId))
     return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
 
