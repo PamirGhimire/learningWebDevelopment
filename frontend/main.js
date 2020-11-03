@@ -3,13 +3,18 @@ function makeid(length) {
     var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var charactersLength = characters.length;
     for ( var i = 0; i < length; i++ ) {
-       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
- }
-
-document.getElementById("sendMessage").addEventListener("click", SendMessage);
+}
 let userId = makeid(5);
+
+setInterval(() =>
+{
+    document.getElementById("conversation").innerHTML = String(makeid(10));
+
+}, 1000);
+
 
 function SendMessage()
 {
