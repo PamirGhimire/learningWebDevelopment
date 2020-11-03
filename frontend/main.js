@@ -8,9 +8,24 @@ function makeid(length) {
     return result;
 }
 let userId = makeid(5);
+document.getElementById("sendMessage").addEventListener("click", SendMessage);
 
 setInterval(() =>
 {
+    // xhr = new XMLHttpRequest(); 
+    // var url = "http://localhost:3000/newMessage"; 
+    // xhr.open("POST", url, true); 
+    // xhr.setRequestHeader("Content-type", "application/json"); 
+    // xhr.onreadystatechange = function () {  
+    //     if (xhr.readyState == 4 && xhr.status == 200) { 
+    //         var json = JSON.parse(xhr.responseText); 
+    //         console.log(json.email + ", " + json.name) 
+    //     } 
+    // } 
+    // var data = JSON.stringify({"userId": String(userId), "newMessage": newMessage}); 
+    // xhr.send(data);
+
+
     document.getElementById("conversation").innerHTML = String(makeid(10));
 
 }, 1000);
