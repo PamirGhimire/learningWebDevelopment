@@ -26,7 +26,7 @@ def ReceiveNewMessage():
     userId = data["userId"]
     newMessage = data["newMessage"]
 
-    chatHistory.append(str(userId) + ":" + str(newMessage))
+    chatHistory.append(str(userId) + " : " + str(newMessage))
     if (len(chatHistory) > maxChatHistoryLength):
         chatHistory.pop(0)
 
