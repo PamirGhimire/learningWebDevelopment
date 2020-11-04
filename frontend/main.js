@@ -10,24 +10,19 @@ function makeid(length) {
 let userId = makeid(5);
 document.getElementById("sendMessage").addEventListener("click", SendMessage);
 
+// get chathistory from backend periodically and update the chatbox
 setInterval(() =>
 {
-    // xhr = new XMLHttpRequest(); 
-    // var url = "http://localhost:3000/newMessage"; 
-    // xhr.open("POST", url, true); 
-    // xhr.setRequestHeader("Content-type", "application/json"); 
-    // xhr.onreadystatechange = function () {  
-    //     if (xhr.readyState == 4 && xhr.status == 200) { 
-    //         var json = JSON.parse(xhr.responseText); 
-    //         console.log(json.email + ", " + json.name) 
-    //     } 
-    // } 
-    // var data = JSON.stringify({"userId": String(userId), "newMessage": newMessage}); 
-    // xhr.send(data);
+    xhr = new XMLHttpRequest(); 
+    var url = "http://localhost:3000/chatHistory"; 
+    xhr.open("GET", url, true); 
+    xhr.responseType = 'json';
+    xhr.onload = () => {
+      const data = xhr.response;  
+      document.getElementById("conversation").innerHTML = data["chatHistory"]
+    };
 
-
-    document.getElementById("conversation").innerHTML = String(makeid(10));
-
+    xhr.send();
 }, 1000);
 
 
