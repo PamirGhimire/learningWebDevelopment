@@ -3,6 +3,7 @@ from flask import Flask, request, jsonify, json
 from flask_cors import CORS
 
 maxChatHistoryLength=10
+maxChatHistoryCharLength = 900
 chatHistory = []
 
 # create a Flask CORS application
@@ -12,8 +13,10 @@ CORS(app)
 @app.route('/chatHistory', methods=['GET'])
 def SendChatHistory():
     chatHistoryStr = ""
-    for msg in chatHistory:
-        chatHistoryStr += "<br>" + str(msg)
+    for msg in reversed(chatHistory):
+        chatHistoryStr = "<br><br>" + str(msg) + chatHistoryStr
+        if (len(chatHistoryStr) >= maxChatHistoryCharLength):
+            break
     return jsonify(chatHistory = chatHistoryStr)
 
 # create predict url and only allow post requests.

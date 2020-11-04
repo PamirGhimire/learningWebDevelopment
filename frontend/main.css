@@ -20,3 +20,13 @@ text {
     width: 640px;
     height: 80px;
 }
+
+.title {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    min-height: 480px;
+    width: 640x;
+    border: 1px solid black;
+}
