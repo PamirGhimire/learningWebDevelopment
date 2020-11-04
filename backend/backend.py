@@ -9,6 +9,13 @@ chatHistory = []
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/chatHistory', methods=['GET'])
+def SendChatHistory():
+    chatHistoryStr = ""
+    for msg in chatHistory:
+        chatHistoryStr += "<br>" + str(msg)
+    return jsonify(chatHistory = chatHistoryStr)
+
 # create predict url and only allow post requests.
 @app.route('/newMessage', methods=['POST'])
 def ReceiveNewMessage():
@@ -19,8 +26,6 @@ def ReceiveNewMessage():
     chatHistory.append(str(userId) + ":" + str(newMessage))
     if (len(chatHistory) > maxChatHistoryLength):
         chatHistory.pop(0)
-
-    print(chatHistory) #remove in production
 
     # return jsonify("registered new message from user " + str(userId))
     return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
